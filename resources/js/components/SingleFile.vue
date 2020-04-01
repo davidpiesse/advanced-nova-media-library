@@ -9,8 +9,17 @@
       </a>
       <span class="label">
         {{ image.file_name }}
+        <span
+          v-if="image.custom_properties.group"
+        >- {{ image.custom_properties.group }}</span>
+        <span v-if="image.custom_properties.filename">- {{ image.custom_properties.filename }}</span>
       </span>
-      <a v-if="isCustomPropertiesEditable" class="edit edit--file ml-2" href="#" @click.prevent="$emit('edit-custom-properties')">
+      <a
+        v-if="isCustomPropertiesEditable"
+        class="edit edit--file ml-2"
+        href="#"
+        @click.prevent="$emit('edit-custom-properties')"
+      >
         <icon type="edit" view-box="0 0 20 20" width="16" height="16" />
       </a>
       <a v-if="removable" class="delete ml-2" href="#" @click.prevent="$emit('remove')">
@@ -21,48 +30,50 @@
 </template>
 
 <script>
-  import GalleryItem from './GalleryItem';
+import GalleryItem from "./GalleryItem";
 
-  export default {
-    props: ['image', 'removable', 'isCustomPropertiesEditable'],
-    components: {
-      GalleryItem,
-    },
-    computed: {
-      downloadUrl() {
-        return this.image.id ? `/nova-vendor/ebess/advanced-nova-media-library/download/${this.image.id}` : null;
-      },
+export default {
+  props: ["image", "removable", "isCustomPropertiesEditable"],
+  components: {
+    GalleryItem
+  },
+  computed: {
+    downloadUrl() {
+      return this.image.id
+        ? `/nova-vendor/ebess/advanced-nova-media-library/download/${this.image.id}`
+        : null;
     }
-  };
+  }
+};
 </script>
 
 <style lang="scss">
-    .gallery .edit.edit--file {
-        position: relative;
-        top: auto;
-        right: auto;
-    }
+.gallery .edit.edit--file {
+  position: relative;
+  top: auto;
+  right: auto;
+}
 
-  .gallery-item-file {
-    &.gallery-item {
-      width: 100%;
+.gallery-item-file {
+  &.gallery-item {
+    width: 100%;
 
-      .gallery-item-info {
-        display: flex;
+    .gallery-item-info {
+      display: flex;
 
-        .label {
-          flex-grow: 1;
-        }
+      .label {
+        flex-grow: 1;
+      }
 
-        .download {
-          color: var(--primary-dark);
-        }
+      .download {
+        color: var(--primary-dark);
+      }
 
-        .delete {
-          align-self: flex-end;
-          color: var(--danger);
-        }
+      .delete {
+        align-self: flex-end;
+        color: var(--danger);
       }
     }
   }
+}
 </style>
