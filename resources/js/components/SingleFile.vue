@@ -9,10 +9,10 @@
       </a>
       <span class="label">
         {{ image.file_name }}
-        <span
+        <!-- <span
           v-if="image.custom_properties.group"
         >- {{ image.custom_properties.group }}</span>
-        <span v-if="image.custom_properties.filename">- {{ image.custom_properties.filename }}</span>
+        <span v-if="image.custom_properties.filename">- {{ image.custom_properties.filename }}</span>-->
       </span>
       <a
         v-if="isCustomPropertiesEditable"
