@@ -1,6 +1,6 @@
 <template>
   <panel-item :field="field">
-    <gallery slot="value" :value="field.value" :field="field" :multiple="field.multiple" />
+    <gallery slot="value" :value="orderedValue" :field="field" :multiple="field.multiple" />
   </panel-item>
 </template>
 
@@ -13,6 +13,8 @@ export default {
   },
   computed: {
     orderedValue() {
+      // sort by group meta
+      // field.value[]  .custom_properties.group
       return this.field.value;
     }
   },
