@@ -15,6 +15,15 @@ export default {
     orderedValue() {
       // sort by group meta
       // field.value[]  .custom_properties.group
+      console.log(this.field.value);
+      console.log(
+        this.field.value.sort((a, b) => {
+          if (a.custom_properties.group && b.custom_properties.group) {
+            console.log(a.custom_properties.group);
+            console.log(b.custom_properties.group);
+          }
+        })
+      );
       return this.field.value;
     }
   },
