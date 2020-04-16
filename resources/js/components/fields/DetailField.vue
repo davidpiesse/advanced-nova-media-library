@@ -20,7 +20,7 @@ export default {
             return -1;
           }
           if (a.custom_properties.group > b.custom_properties.group) {
-            return -1;
+            return 1;
           }
           return 0;
         }
